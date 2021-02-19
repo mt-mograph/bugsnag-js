@@ -30,8 +30,7 @@ module.exports = {
   },
   onUncaughtException: {
     defaultValue: () => (err, event, logger) => {
-      logger.error(`Uncaught exception${getContext(event)}, the process will now terminate…\n${printError(err)}`)
-      process.exit(1)
+      logger.error(`Uncaught exception${getContext(event)}, the process will not terminate…\n${printError(err)}`)
     },
     message: 'should be a function',
     validate: value => typeof value === 'function'
